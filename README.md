@@ -2,11 +2,10 @@
 
 I'm a master's student working on **embodied AI / Vision-Language-Action (VLA) models**: rigorous evaluation, per-episode failure attribution, and RL post-training. My earlier background is in LLM engineering.
 
-This summer I'm building two projects on 3×A800 (both go public in early September, currently being polished for release):
+This summer I built two projects on a shared 3×A800 server:
 
-- **vla-eval-harness**: evaluates open-source VLA models (SmolVLA, π0.5, OpenVLA-OFT) on LIBERO-Spatial under one fixed protocol, with a same-scale leaderboard, per-episode failure attribution (perception / planning / control, every failure episode reviewed on video), and the MuJoCo version-sensitivity finding below.
-  <!-- W7: 补 "Headline: 87.4 / 94.4 / 97.4 (SmolVLA / π0.5 / OpenVLA-OFT) under one protocol, MuJoCo 3.2.7" -->
-- **vla-rl-post-training**: GRPO post-training of OpenVLA-OFT on [RLinf](https://github.com/RLinf/RLinf), adapted from the official 8-16 GPU recipe down to 2-3×A800, with both decoding protocols reported side by side.
+- **[vla-libero-eval](https://github.com/Rick0525/vla-libero-eval)**: evaluates open-source VLA models (SmolVLA, π0.5, OpenVLA-OFT) on LIBERO-Spatial under one fixed protocol, with a same-scale leaderboard, per-episode failure attribution (perception / planning / control, every failure episode reviewed on video), and the MuJoCo version-sensitivity finding below. Headline: **87.4 / 94.4 / 97.4** (SmolVLA 0.45B / π0.5 3.3B / OpenVLA-OFT 7.5B) under one protocol, MuJoCo 3.2.7.
+- **[vla-rl-post-training](https://github.com/Rick0525/vla-rl-post-training)**: reproduces the SimpleVLA-RL GRPO recipe (originally 8×A800 full-parameter) on **2×A800 + LoRA** via [RLinf](https://github.com/RLinf/RLinf): **56.0 → 93.8** on LIBERO-Spatial using ~23% of the official data budget; the official checkpoint scores 96.4 on the same evaluator. Includes a preregistered controlled experiment on a dealing-strategy intervention (speedup confirmed, score gain unproven).
 
 #### Upstream contributions
 
